@@ -43,4 +43,8 @@ public class CodeService {
 		return this.codeServiceHelper.deleteByName(name);
 	}
 	
+	@RequestMapping("/codes/update/{name}")
+	public Code updateCodeByName(@PathVariable("name") String name, @RequestParam("content") String updatedContent) {
+		return this.codeServiceHelper.updateByName(name, updatedContent);
+	}
 }

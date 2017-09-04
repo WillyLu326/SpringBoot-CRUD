@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import com.example.model.Code;
@@ -39,6 +40,15 @@ public class CodeServiceHelper {
 		return this.mongoOperations.findAndRemove(query, Code.class);
 	}
 	
-	
+	public Code updateByName(String name, String updatedContent) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("name").is(name));
+		
+		Update update = new Update();
+		update.set("content", updatedContent);
+		
+		this.mongoOperations.upsert(query, update, Code.class);
+		return this.mongoOperations.findOne(query, Code.class);
+	}
 	
 }
