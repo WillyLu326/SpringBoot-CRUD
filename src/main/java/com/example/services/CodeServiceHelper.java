@@ -33,4 +33,12 @@ public class CodeServiceHelper {
 		return this.mongoOperations.findOne(query, Code.class);
 	}
 	
+	public Code deleteByName(String name) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("name").is(name));
+		return this.mongoOperations.findAndRemove(query, Code.class);
+	}
+	
+	
+	
 }

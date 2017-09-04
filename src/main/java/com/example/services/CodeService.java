@@ -38,4 +38,9 @@ public class CodeService {
 		return name;
 	}
 	
+	@RequestMapping("/codes/delete/{name}")
+	public Code removeCodeByName(@PathVariable("name") String name) {
+		return this.codeServiceHelper.deleteByName(name);
+	}
+	
 }
