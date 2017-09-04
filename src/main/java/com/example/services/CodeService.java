@@ -1,8 +1,12 @@
 package com.example.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.model.Code;
 
 @RestController
 public class CodeService {
@@ -15,5 +19,10 @@ public class CodeService {
 		this.codeServiceHelper.saveCode();
 		return "Hello world";
 	}
-
+	
+	@RequestMapping("/codes")
+	public List<Code> getAll() {
+		return this.codeServiceHelper.getCode();
+	}
+	
 }
