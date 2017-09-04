@@ -3,6 +3,7 @@ package com.example.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,4 +26,8 @@ public class CodeService {
 		return this.codeServiceHelper.getCode();
 	}
 	
+	@RequestMapping("/codes/{name}")
+	public Code getOneCode(@PathVariable("name") String name) {
+		return this.codeServiceHelper.getOneCode(name);
+	}
 }
