@@ -1,14 +1,22 @@
 package com.example.model;
 
+import java.io.Serializable;
+
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 
-public class Code {
+public class Code implements Serializable{
 	
+	private static final long serialVersionUID = 1515067058106013493L;
+
 	@Id
 	private String id;
 	
+	@NotNull
 	private String name;
 	
+	@NotNull
 	private String content;
 
 	public String getName() {
