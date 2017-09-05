@@ -17,11 +17,9 @@ public class CodeServiceHelper {
 	@Autowired
 	MongoOperations mongoOperations;
 	
-	public void saveCode() {
-		Code code = new Code();
-		code.setName("Add Node");
-		code.setContent("node two");
+	public List<Code> saveCode(Code code) {
 		this.mongoOperations.save(code);
+		return this.mongoOperations.findAll(Code.class);
 	}
 	
 	public List<Code> getCode() {
