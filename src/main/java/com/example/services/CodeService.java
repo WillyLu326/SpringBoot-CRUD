@@ -2,7 +2,10 @@ package com.example.services;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,8 +31,8 @@ public class CodeService {
 		return this.codeServiceHelper.getCode();
 	}
 	
-	@RequestMapping(value="/codes", method=RequestMethod.POST)
-	public List<Code> saveCode(@RequestBody Code code) {
+	@RequestMapping(value="/codes", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Code> saveCode(@Valid @RequestBody Code code) {
 		return this.codeServiceHelper.saveCode(code);
 	}
 	
