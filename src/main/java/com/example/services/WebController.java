@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.exception.CustomNotFoundException;
 import com.example.model.Customer;
-import com.example.services.CustomerService;
 
 @RestController
 public class WebController {
