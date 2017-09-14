@@ -16,6 +16,11 @@ public class WebController {
 	@Autowired
 	CustomerService consumerService;
 	
+	@RequestMapping("/customer")
+	public String hello() {
+		return "Hello Customer";
+	}
+	
 	@RequestMapping(value = "/customer/{name}", method = RequestMethod.GET)
 	public Customer findCustomerByName(@PathVariable("name") String name) {
 		Customer customer = this.consumerService.findCustomerByName(name);
